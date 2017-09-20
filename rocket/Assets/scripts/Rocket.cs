@@ -94,41 +94,6 @@ public class Rocket : MonoBehaviour{
 
 
 
-	void AlternateMovement()
-	{
-		
-		/*
-		if (Button_Left.OnPointerDown(eventData)) {
-			rb.AddForceAtPosition (left_rocket.transform.up * thrust, left_rocket.transform.position);
-			left_emitter.Play ();
-
-
-		}
-
-		if (Input.GetButton(Button_Right)) {
-			rb.AddForceAtPosition (right_rocket.transform.up * thrust, right_rocket.transform.position);
-			right_emitter.Play (); 
-
-		}
-
-		if ( Button_Left.OnDeselect()) {
-			left_emitter.Stop ();
-
-
-		}
-
-		if (Button_Right.OnDeselect()) {
-
-			right_emitter.Stop (); 
-
-		}
-		*/
-
-
-
-
-	}
-
 
 	public void RocketLeft()
 	{
