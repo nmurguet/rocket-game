@@ -158,4 +158,33 @@ public class Rocket : MonoBehaviour{
 
 	}
 
+	void OnCollisionStay2D(Collision2D other){
+		if (other.gameObject.tag == "moving_platform") {
+			transform.parent = other.transform;
+
+		} else {
+			transform.parent = null;
+		}
+
+	}
+
+	void OnCollisionExit2D(Collision2D other){
+		if (other.gameObject.tag == "moving_platform") {
+			/*float time = 0.5f;
+			time -= Time.deltaTime;
+			if (time < 0f) {
+				transform.parent = null;
+			}
+*/
+			StartCoroutine (WaitandRelease(1));
+		} 
+
+	}
+
+	IEnumerator WaitandRelease(int seconds)
+	{
+		yield return new WaitForSeconds (seconds);
+		transform.parent = null; 
+
+	}
 }

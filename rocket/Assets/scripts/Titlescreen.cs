@@ -40,6 +40,13 @@ public class Titlescreen : MonoBehaviour {
 	}
 
 
+	public void QuitGame()
+	{
+
+		Application.Quit (); 
+	}
+
+
 
 
 
