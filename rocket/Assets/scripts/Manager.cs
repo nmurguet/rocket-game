@@ -21,7 +21,16 @@ public class Manager : MonoBehaviour {
 	public float time; 
 	public Text textTimeLvl; 
 
+	public float HighScore; 
+	public float timeToDisplay; 
 
+	public GameObject winPanel; 
+	public Text textHighscore; 
+	public Text textYourTime; 
+
+
+
+	public bool isPaused; 
 
 
 
@@ -35,15 +44,31 @@ public class Manager : MonoBehaviour {
 		store_timer = timer; 
 		textTimer.enabled = false; 
 		time = 0; 
+		isPaused = false; 
+
+		winPanel.SetActive (false);
+
+		if (PlayerPrefs.HasKey (SceneManager.GetActiveScene ().name) == false) {
+			PlayerPrefs.SetFloat (SceneManager.GetActiveScene ().name, 9999f);
+
+		} else {
+		}
+		HighScore = PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name);
 
 		
 	}
 
 	// Update is called once per frame
 	void Update () {
+
+
+		if (isPaused) {
+			Time.timeScale = 0;
+		} else
+			Time.timeScale = 1; 
 		
 
-		if (player.timeStart) {
+		if (player.timeStart && !isPaused) {
 			time += Time.deltaTime; 
 		}
 
@@ -55,8 +80,25 @@ public class Manager : MonoBehaviour {
 			textTimer.text = timer.ToString("F2"); 
 			textTimer.enabled = true; 
 			if (timer < 0.01f) {
+				isPaused = true; 
 				timer = 0f;
-				SceneManager.LoadScene (lvl);
+				//SceneManager.LoadScene (lvl);
+				winPanel.SetActive(true); 
+				if (time < PlayerPrefs.GetFloat (SceneManager.GetActiveScene ().name)) {
+					
+					HighScore = time;
+					timeToDisplay = time; 
+					PlayerPrefs.SetFloat (SceneManager.GetActiveScene ().name, HighScore);
+
+				} else {
+					HighScore = PlayerPrefs.GetFloat (SceneManager.GetActiveScene ().name);
+					timeToDisplay = time; 
+
+
+				}
+				textHighscore.text = "Best Time: " + HighScore.ToString("F2");
+				textYourTime.text = "Your Time: " + timeToDisplay.ToString ("F2");
+
 
 			}
 

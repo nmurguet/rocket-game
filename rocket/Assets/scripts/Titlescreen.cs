@@ -6,8 +6,13 @@ using UnityEngine.SceneManagement;
 public class Titlescreen : MonoBehaviour {
 
 
+
+
 	public string level;
 	// Use this for initialization
+
+
+
 	void Start () {
 		
 	}
@@ -44,6 +49,15 @@ public class Titlescreen : MonoBehaviour {
 	{
 
 		Application.Quit (); 
+	}
+
+
+	public void ResetPlayerPrefs()
+	{
+		
+			PlayerPrefs.DeleteAll();
+
+
 	}
 
 
