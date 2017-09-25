@@ -9,15 +9,22 @@ public class MovingPlatform : MonoBehaviour {
 	public float speed; 
 	public bool done; 
 
+	public List<GameObject> platforms; 
+
+	public int activePlatform;
+
 	// Use this for initialization
 	void Start () {
 		done = true; 
+
+		activePlatform = 0; 
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		
 
-
+		/*
 		float step = speed * Time.deltaTime; 
 		if (done == false) {
 
@@ -37,9 +44,33 @@ public class MovingPlatform : MonoBehaviour {
 			}
 		}
 
-	
+	*/
 
 
+
+	}
+	void Update()
+	{
+		MultiplePlatforms (); 
+
+	}
+
+
+	void MultiplePlatforms()
+	{
+		float step = speed * Time.deltaTime; 
+		transform.position = Vector3.MoveTowards (transform.position, platforms[activePlatform].transform.position, step);
+		if (transform.position ==  platforms[activePlatform].transform.position) {
+			if (activePlatform == platforms.Count -1) {
+				activePlatform = 0; 
+
+			} else if (activePlatform < platforms.Count-1){
+				activePlatform += 1;
+
+			}
+
+
+		}
 
 	}
 }

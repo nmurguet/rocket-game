@@ -38,6 +38,15 @@ public class Rocket : MonoBehaviour{
 	public bool timeStart; 
 
 
+	//for planetoid levels
+	private Vector2 dir; 
+	private Transform target; 
+	public float pullForce; 
+	public bool pulled; 
+	private float storeGrav;
+
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -52,7 +61,10 @@ public class Rocket : MonoBehaviour{
 	// Update is called once per frame
 	void Update () {
 
+		if (pulled) {
+			ManageGravity (); 
 
+		}
 
 
 
@@ -187,4 +199,36 @@ public class Rocket : MonoBehaviour{
 		transform.parent = null; 
 
 	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.gameObject.tag == "planet") {
+			storeGrav = rb.gravityScale; 
+			target = other.gameObject.transform;
+			rb.gravityScale = 0; 
+			pulled = true; 
+
+		}
+
+
+	}
+	void OnTriggerExit2D(Collider2D other){
+		if (other.gameObject.tag == "planet") {
+			 
+			rb.gravityScale = 0.2f; 
+			pulled = false; 
+		}
+
+
+	}
+
+	void ManageGravity()
+	{
+		dir = transform.position - target.transform.position; 
+
+		rb.AddForce (-dir.normalized * pullForce); 
+
+
+
+	}
+
 }
