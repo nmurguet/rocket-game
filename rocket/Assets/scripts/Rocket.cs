@@ -54,11 +54,16 @@ public class Rocket : MonoBehaviour{
 	private SpriteRenderer sr; 
 
 
+	//spawn point
+	private Transform spawn; 
+
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		sr = GetComponent<SpriteRenderer> (); 
+		spawn = GameObject.FindGameObjectWithTag ("spawn").transform; 
+		transform.position = new Vector3 (spawn.position.x, spawn.position.y, spawn.position.z); 
 		isPressedLeft = false; 
 		isPressedRight = false; 
 		clear_level = false; 

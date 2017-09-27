@@ -436,6 +436,34 @@ GameObject:
   m_PrefabParentObject: {fileID: 1706441127523120, guid: b3916c42d96865c40ba46a4c07b86704,
     type: 2}
   m_PrefabInternal: {fileID: 837393193}
+--- !u!1 &592547388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 592547389}
+  m_Layer: 0
+  m_Name: spawnPoint
+  m_TagString: spawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &592547389
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 592547388}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.44, y: -3.73, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &595872861
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +583,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1293460386206344, guid: ab8b87de50b3ce945a675a36f07bea2d,
         type: 2}
+    - target: {fileID: 114165444681250694, guid: b3916c42d96865c40ba46a4c07b86704,
+        type: 2}
+      propertyPath: isGrounded
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b3916c42d96865c40ba46a4c07b86704, type: 2}
   m_IsPrefabParent: 0
