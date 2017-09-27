@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class Titlescreen : MonoBehaviour {
 
 
@@ -59,6 +60,21 @@ public class Titlescreen : MonoBehaviour {
 
 
 	}
+
+	public void InvertControls()
+	{
+		if (PlayerPrefs.GetInt ("inverted") == 0) {
+			PlayerPrefs.SetInt ("inverted", 1);
+
+		} else if (PlayerPrefs.GetInt ("inverted") == 1) {
+			PlayerPrefs.SetInt ("inverted", 0);
+
+		}
+
+	}
+
+
+
 
 
 

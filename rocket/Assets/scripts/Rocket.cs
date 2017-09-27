@@ -46,15 +46,28 @@ public class Rocket : MonoBehaviour{
 	private float storeGrav;
 
 
+	//check for inverted controls
+	private int isInverted; //0 false - 1 true
+
+	//death Particle
+	public GameObject DeathParticle; 
+	private SpriteRenderer sr; 
+
 
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
+		sr = GetComponent<SpriteRenderer> (); 
 		isPressedLeft = false; 
 		isPressedRight = false; 
 		clear_level = false; 
 		timeStart = false; 
+		if (!PlayerPrefs.HasKey ("inverted")) {
+			PlayerPrefs.SetInt ("inverted", 0);
+
+		}
+		isInverted = PlayerPrefs.GetInt ("inverted");
 		
 	}
 	
@@ -142,32 +155,52 @@ public class Rocket : MonoBehaviour{
 
 	public void RocketLeft()
 	{
+		if (isInverted==0) {
+
 		isPressedLeft = true; 
 		left_emitter.Play ();
-		Debug.Log ("pressed");
+		}else if (isInverted == 1) {
+			isPressedRight = true; 
+			right_emitter.Play (); 
+			Debug.Log ("Invertido");
+		}
 
 	}
 
 	public void UnpressedRocketLeft()
 	{
-		isPressedLeft = false; 
-		left_emitter.Stop ();
+		if (isInverted == 0) {
+			isPressedLeft = false; 
+			left_emitter.Stop ();
+		} else if (isInverted == 1) {
+			isPressedRight = false; 
+			right_emitter.Stop ();
+		}
+
 
 	}
 
 	public void RocketRight()
 	{
-		isPressedRight = true; 
-		right_emitter.Play (); 
-
+		if (isInverted==0) {
+			isPressedRight = true; 
+			right_emitter.Play (); 
+		}else if (isInverted == 1) {		
+			isPressedLeft = true; 
+			left_emitter.Play ();
+		}
 
 	}
 
 	public void UnpressedRocketRight()
 	{
-		isPressedRight = false; 
-		right_emitter.Stop ();
-
+		if (isInverted==0) {
+			isPressedRight = false; 
+			right_emitter.Stop ();
+		}else if (isInverted == 1) {
+			isPressedLeft = false; 
+			left_emitter.Stop ();
+		}
 	}
 
 	void OnCollisionStay2D(Collision2D other){
@@ -197,6 +230,15 @@ public class Rocket : MonoBehaviour{
 	{
 		yield return new WaitForSeconds (seconds);
 		transform.parent = null; 
+
+	}
+
+	IEnumerator WaitandRestart(int seconds)
+	{
+		yield return new WaitForSeconds (seconds);
+		Scene scene = SceneManager.GetActiveScene();
+
+		SceneManager.LoadScene (scene.name);
 
 	}
 
@@ -230,5 +272,21 @@ public class Rocket : MonoBehaviour{
 
 
 	}
+
+
+
+	void OnCollisionEnter2D(Collision2D other)
+	{
+		if (velocity > 4f) {
+			
+			sr.enabled = false; 
+			Instantiate (DeathParticle, transform.position, Quaternion.identity);
+			StartCoroutine(WaitandRestart(1));
+
+		} 
+
+	}
+
+
 
 }
