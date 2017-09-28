@@ -63,5 +63,14 @@ EditorBuildSettings:
     path: Assets/scene/level17.unity
     guid: e784234e168598540a76641eb9eabc68
   - enabled: 1
+    path: Assets/scene/level18.unity
+    guid: 67052c3ca89cdcf4d88ae1f52b9a5490
+  - enabled: 1
+    path: Assets/scene/level19.unity
+    guid: 701e6484f5b818947a17787621997fb9
+  - enabled: 1
+    path: Assets/scene/level20.unity
+    guid: 7cd5989a8a9824f46be71c51dbc570f6
+  - enabled: 1
     path: Assets/scene/level_menu.unity
     guid: b5b00c187a8950c458ecdc372f71fae1

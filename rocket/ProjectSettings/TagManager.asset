@@ -7,6 +7,7 @@ TagManager:
   - moving_platform
   - planet
   - spawn
+  - homingMissile
   layers:
   - Default
   - TransparentFX
