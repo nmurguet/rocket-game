@@ -2254,7 +2254,7 @@ MonoBehaviour:
   speed: 0.05
   following: 0
   offset_x: 0
-  offset_y: 0.2
+  offset_y: 0
   zoom: 0
   minZoom: 8
   maxZoom: 15
