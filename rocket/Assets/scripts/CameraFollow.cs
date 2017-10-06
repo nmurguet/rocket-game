@@ -18,16 +18,35 @@ public class CameraFollow : MonoBehaviour {
 
 	public float maxSpeed; 
 
+
+	public PlayerController playerController; 
 	private Rocket player; 
 
 	// Use this for initialization
 	void Start () {
-		target = GameObject.FindGameObjectWithTag ("Player").transform; 
+		
 		myCamera = Camera.main; 
-		player = GameObject.FindObjectOfType<Rocket> (); 
+		playerController = FindObjectOfType<PlayerController> (); 
+
+
 		following = true; 
 
+
+		player = playerController.ReturnActivePlayer ().GetComponent<Rocket> (); 
+
+		target = playerController.ReturnActivePlayer ().transform; 
+
 		
+	}
+
+
+	void Update()
+	{
+		if (Input.GetKeyDown (KeyCode.M)) {
+			target = playerController.ReturnActivePlayer ().transform; 
+
+		}
+
 	}
 	
 	// Update is called once per frame

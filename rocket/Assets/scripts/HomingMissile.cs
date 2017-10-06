@@ -19,9 +19,15 @@ public class HomingMissile : MonoBehaviour {
 	private TrailRenderer tr; 
 	private CapsuleCollider2D cc;
 
+
+	public PlayerController playerController; 
+	private Rocket player; 
+
 	// Use this for initialization
 	void Start () {
-		target = GameObject.FindGameObjectWithTag ("Player"); 
+		playerController = FindObjectOfType<PlayerController> (); 
+		target = playerController.ReturnActivePlayer ().gameObject; 
+
 		rb = GetComponent<Rigidbody2D> (); 
 		tr = GetComponent<TrailRenderer> ();
 		cc = GetComponent<CapsuleCollider2D> (); 

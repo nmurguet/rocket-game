@@ -15,11 +15,12 @@ public class FollowText : MonoBehaviour {
 	private RectTransform rt;
 	private RectTransform canvasRT;
 	private Vector3 roboScreenPos;
+	public PlayerController playerController; 
 
 	// Use this for initialization
 	void Start () {
-
-
+		playerController = FindObjectOfType<PlayerController> (); 
+		robot = playerController.ReturnActivePlayer ();
 		roboPos = robot.transform.position;
 
 		rt = GetComponent<RectTransform>();

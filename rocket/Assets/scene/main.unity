@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b745f6ea1eea304b94630f10349d98f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
   timer: 1.5
   lvl: level2
   textTimer: {fileID: 1895833648}
@@ -320,12 +321,6 @@ RectTransform:
   m_AnchoredPosition: {x: -110, y: -70}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 1}
---- !u!114 &221837843 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114165444681250694, guid: b3916c42d96865c40ba46a4c07b86704,
-    type: 2}
-  m_PrefabInternal: {fileID: 837393193}
-  m_Script: {fileID: 11500000, guid: ffe5a6f3c2ed053438a3cd626aeea56a, type: 3}
 --- !u!1 &303783518
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,11 +426,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &456728991 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1706441127523120, guid: b3916c42d96865c40ba46a4c07b86704,
-    type: 2}
-  m_PrefabInternal: {fileID: 837393193}
 --- !u!1 &592547388
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,7 +448,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 592547388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.44, y: -3.73, z: 0}
+  m_LocalPosition: {x: -7.07, y: -2.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -538,59 +528,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 595872861}
---- !u!1001 &837393193
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4224150510438186, guid: b3916c42d96865c40ba46a4c07b86704, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -5.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 4224150510438186, guid: b3916c42d96865c40ba46a4c07b86704, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -3.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 4224150510438186, guid: b3916c42d96865c40ba46a4c07b86704, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4224150510438186, guid: b3916c42d96865c40ba46a4c07b86704, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4224150510438186, guid: b3916c42d96865c40ba46a4c07b86704, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4224150510438186, guid: b3916c42d96865c40ba46a4c07b86704, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4224150510438186, guid: b3916c42d96865c40ba46a4c07b86704, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4224150510438186, guid: b3916c42d96865c40ba46a4c07b86704, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114165444681250694, guid: b3916c42d96865c40ba46a4c07b86704,
-        type: 2}
-      propertyPath: DeathParticle
-      value: 
-      objectReference: {fileID: 1293460386206344, guid: ab8b87de50b3ce945a675a36f07bea2d,
-        type: 2}
-    - target: {fileID: 114165444681250694, guid: b3916c42d96865c40ba46a4c07b86704,
-        type: 2}
-      propertyPath: isGrounded
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: b3916c42d96865c40ba46a4c07b86704, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &923153929
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,7 +753,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 221837843}
+        - m_Target: {fileID: 1943927459}
           m_MethodName: RocketLeft
           m_Mode: 1
           m_Arguments:
@@ -833,7 +770,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 221837843}
+        - m_Target: {fileID: 1943927459}
           m_MethodName: UnpressedRocketLeft
           m_Mode: 1
           m_Arguments:
@@ -1146,6 +1083,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1257828184}
+--- !u!1001 &1269797768
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4010618476503900, guid: f929a4d3d2842844ab530678d0f12393, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -10.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010618476503900, guid: f929a4d3d2842844ab530678d0f12393, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010618476503900, guid: f929a4d3d2842844ab530678d0f12393, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010618476503900, guid: f929a4d3d2842844ab530678d0f12393, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010618476503900, guid: f929a4d3d2842844ab530678d0f12393, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010618476503900, guid: f929a4d3d2842844ab530678d0f12393, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010618476503900, guid: f929a4d3d2842844ab530678d0f12393, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010618476503900, guid: f929a4d3d2842844ab530678d0f12393, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230806201430542, guid: f929a4d3d2842844ab530678d0f12393, type: 2}
+      propertyPath: m_Name
+      value: PlayerController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: f929a4d3d2842844ab530678d0f12393, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1290061768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,7 +1526,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 221837843}
+        - m_Target: {fileID: 1943927459}
           m_MethodName: RocketRight
           m_Mode: 1
           m_Arguments:
@@ -1560,7 +1543,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 221837843}
+        - m_Target: {fileID: 1943927459}
           m_MethodName: UnpressedRocketRight
           m_Mode: 1
           m_Arguments:
@@ -2097,8 +2080,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pos: {x: 10, y: 10, z: 0}
-  robot: {fileID: 456728991}
+  robot: {fileID: 0}
   camera: {fileID: 1067948864}
+  playerController: {fileID: 0}
 --- !u!1 &1905784684
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,6 +2180,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1943927459 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114472952413551160, guid: f929a4d3d2842844ab530678d0f12393,
+    type: 2}
+  m_PrefabInternal: {fileID: 1269797768}
+  m_Script: {fileID: 11500000, guid: bbd2f6bb4822f234399f7075df83c3b7, type: 3}
 --- !u!1 &2036083830
 GameObject:
   m_ObjectHideFlags: 0

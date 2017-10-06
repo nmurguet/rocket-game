@@ -64,6 +64,7 @@ public class Rocket : MonoBehaviour{
 		sr = GetComponent<SpriteRenderer> (); 
 		spawn = GameObject.FindGameObjectWithTag ("spawn").transform; 
 		transform.position = new Vector3 (spawn.position.x, spawn.position.y, spawn.position.z); 
+		transform.rotation = spawn.rotation; 
 		isPressedLeft = false; 
 		isPressedRight = false; 
 		clear_level = false; 
@@ -273,6 +274,7 @@ public class Rocket : MonoBehaviour{
 		dir = transform.position - target.transform.position; 
 
 		rb.AddForce (-dir.normalized * pullForce); 
+
 
 
 

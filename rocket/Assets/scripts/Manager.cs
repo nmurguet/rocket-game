@@ -8,6 +8,8 @@ public class Manager : MonoBehaviour {
 
 	private Rocket player; 
 
+	public PlayerController playerController; 
+
 
 
 	public float timer; 
@@ -39,8 +41,8 @@ public class Manager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-		player = FindObjectOfType<Rocket> (); 
+		playerController = FindObjectOfType<PlayerController> (); 
+		player = playerController.ReturnActivePlayer ().GetComponent<Rocket> (); 
 		store_timer = timer; 
 		textTimer.enabled = false; 
 		time = 0; 
