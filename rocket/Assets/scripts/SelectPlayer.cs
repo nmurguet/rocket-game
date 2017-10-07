@@ -27,45 +27,32 @@ public class SelectPlayer : MonoBehaviour {
 
 		activePlayer = PlayerPrefs.GetInt ("activePlayer"); 
 		index = activePlayer; 
-		max_player = players.Count - 1; 
-
-		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (index == 0) {
 			sr.color = Color.white; 
-
 		} else if (index == 1) {
 			sr.color = Color.red; 
-
 		} else if (index == 2) {
 			sr.color = Color.green;
 		} else {
 			sr.color = Color.blue; 
-
 		}
-		
 	}
 
 
 	public void LeftPress()
 	{
-		if (index >0) {
-			index -= 1; 
-			PlayerPrefs.SetInt ("activePlayer", index); 
-		}
-
+		index = (index+players.Count-1)%players.Count; 
+		PlayerPrefs.SetInt ("activePlayer", index);
 	}
 
 	public void RightPress()
 	{
-		if (index <max_player) {
-			index += 1; 
-			PlayerPrefs.SetInt ("activePlayer", index); 
-		}
-
+		index = (index+1)%players.Count; 
+		PlayerPrefs.SetInt ("activePlayer", index);
 	}
 
 
